@@ -1,0 +1,29 @@
+<div class = "list_fields">
+<table>
+	<tr>
+		<td>
+ <%= f.label :title , "Title of List" %><br /><br/>
+</td>
+<td>
+ <%= f.text_field :title %>  <br/> <br/>
+</td>
+</tr>
+<tr>
+	<td>
+ <%= f.label :description , "Description" %><br /><br/>
+</td>
+<td>
+ <%= f.text_area :description %> <br/><br/>
+</td>
+</tr>
+ <% if params[:action] != 'new'%>
+<tr>
+	<td>
+ <%= f.check_box :_destroy %></td>
+<td>
+ <%= f.label :_destroy , "Remove List Fields"%>
+</td>
+</tr>
+ <% end %>
+</table>
+</div>

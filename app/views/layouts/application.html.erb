@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+
+  <body>
+	<div class="logo_left">
+      <%= image_tag "logo.png" %>
+      <br/>
+      <h1>Sample Todo Test Application</h1>
+      <p>Todo MVC is a test application that has helped gauge different MVC frameworks better and also has given an opportunity to try each of them in order for the user to use the best version of it for their application. This sample ToDo application emulates the MVC app, but is just build on Jquery and Ruby on Rails with Postgresql as the backend.</p>
+    </div>
+    <div class="logo_right">
+      <%= image_tag "icon.png" %>
+    </div>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
